@@ -1,4 +1,16 @@
 .meditate-button {
   text-decoration: none;
-  border: solid;
+  color: black;
+  font-size: 120px;
+}
+
+.button-wrapper {
+  padding: 15px;
+  border: solid 2px black;
+  border-radius: 10px;
+  transition: ease-in, 1s;
+}
+
+.button-wrapper:hover {
+  box-shadow: 20px 20px rgb(44, 44, 44);
 }
