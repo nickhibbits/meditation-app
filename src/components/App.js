@@ -4,6 +4,8 @@ import Dashboard from "./Dashboard";
 import Stats from "./Stats";
 import Timer from "./Timer";
 
+import "../styles/index.css";
+
 function App() {
   return (
     <div className="app-component">
