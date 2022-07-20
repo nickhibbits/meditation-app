@@ -1,5 +1,5 @@
 import "../styles/timer.css";
-function SelectDuration({ setTime }) {
+function SelectDuration({ setTime, handleStart }) {
   return (
     <main className="select-duration-component">
       <form name="duration-range" className="duration-range">
@@ -11,6 +11,7 @@ function SelectDuration({ setTime }) {
           min="0"
           max="3600"
         ></input>
+        <button onClick={() => handleStart(true)}>Begin</button>
       </form>
     </main>
   );

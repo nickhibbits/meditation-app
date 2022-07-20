@@ -1,3 +1,9 @@
+.dashboard-component {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+}
+
 .meditate-button {
   text-decoration: none;
   color: black;
@@ -6,11 +12,21 @@
 
 .button-wrapper {
   padding: 15px;
-  border: solid 2px black;
+  border: solid 10px black;
   border-radius: 10px;
   transition: ease-in, 1s;
 }
 
+.minutes-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.minutes-label {
+  font-size: 3rem;
+}
+
 .button-wrapper:hover {
-  box-shadow: 20px 20px rgb(44, 44, 44);
+  box-shadow: 20px 20px rgb(146, 146, 146);
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 import SelectDuration from "./SelectDuration";
@@ -7,34 +7,32 @@ import "../styles/timer.css";
 function Timer() {
   const [time, setTime] = useState(0);
 
+  const _time = useMemo(() => {
+    return time;
+  }, [time]);
+
+  const [timerOn, setTimerOn] = useState(false);
+
   function formatTime({ remainingTime }) {
     const minutes = Math.floor(remainingTime / 60);
-    const seconds = remainingTime - minutes * 60;
 
-    if (remainingTime === 0) {
-      return "0";
-    }
-
-    if (seconds < 10) {
-      return `${minutes}:0${seconds}`;
-    }
-
-    if (seconds === 0) {
-      return `${minutes}:00`;
-    }
-
-    return `${minutes}:${seconds}`;
+    return (
+      <div className="minutes-wrapper">
+        <div>{minutes}</div>
+        <div className="minutes-label">Minutes</div>
+      </div>
+    );
   }
 
   return (
     <div className="timer-component">
-      <SelectDuration setTime={setTime} />
+      <SelectDuration setTime={setTime} handleStart={setTimerOn} />
       <div className="circle-timer-wrapper">
         <CountdownCircleTimer
           size={550}
           strokeWidth={30}
-          isPlaying={false}
-          duration={time}
+          isPlaying={timerOn}
+          duration={_time}
           colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
           colorsTime={[10, 6, 3, 0]}
           onComplete={() => ({ shouldRepeat: true, delay: 1 })}
