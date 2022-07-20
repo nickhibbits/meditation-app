@@ -1,11 +1,26 @@
 .timer-component {
-  font-size: 10rem;
+  font-size: 9.5rem;
+  display: grid;
+  grid-template-rows: 17vh 83vh;
 }
 
 .select-duration-component {
-  font-size: 5rem;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.circle-timer-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.duration-range {
+  display: flex;
+  flex-direction: column;
 }
 
 #duration-input {
-  width: 20rem;
+  width: 50rem;
 }

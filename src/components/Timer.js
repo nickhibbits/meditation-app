@@ -15,26 +15,34 @@ function Timer() {
       return "0";
     }
 
+    if (seconds < 10) {
+      return `${minutes}:0${seconds}`;
+    }
+
+    if (seconds === 0) {
+      return `${minutes}:00`;
+    }
+
     return `${minutes}:${seconds}`;
   }
 
   return (
     <div className="timer-component">
       <SelectDuration setTime={setTime} />
-      <CountdownCircleTimer
-        className="circle-timer"
-        size={400}
-        strokeWidth={30}
-        isPlaying={false}
-        duration={time}
-        colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
-        colorsTime={[10, 6, 3, 0]}
-        onComplete={() => ({ shouldRepeat: true, delay: 1 })}
-        children={formatTime}
-      >
-        {/* {({ remainingTime }) => remainingTime} */}
-        {formatTime}
-      </CountdownCircleTimer>
+      <div className="circle-timer-wrapper">
+        <CountdownCircleTimer
+          size={550}
+          strokeWidth={30}
+          isPlaying={false}
+          duration={time}
+          colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
+          colorsTime={[10, 6, 3, 0]}
+          onComplete={() => ({ shouldRepeat: true, delay: 1 })}
+          children={formatTime}
+        >
+          {formatTime}
+        </CountdownCircleTimer>
+      </div>
     </div>
   );
 }
