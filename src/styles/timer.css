@@ -5,3 +5,7 @@
 .select-duration-component {
   font-size: 5rem;
 }
+
+#duration-input {
+  width: 20rem;
+}
